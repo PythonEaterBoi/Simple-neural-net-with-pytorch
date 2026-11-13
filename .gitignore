@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.pt
+!checkpoints/.gitkeep
+uploads/*
+!uploads/.gitkeep
+predictions/*
+!predictions/.gitkeep
+demo_data/
+.DS_Store

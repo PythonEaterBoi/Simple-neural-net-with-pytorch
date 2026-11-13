@@ -1,0 +1,14 @@
+# OmniTrain dependencies
+#
+# CPU-only PyTorch install (recommended for laptops / no GPU):
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+# GPU install: follow https://pytorch.org/get-started/locally/ then install the rest:
+#   pip install -r requirements.txt
+
+torch>=2.0
+fastapi>=0.100
+uvicorn[standard]>=0.22
+python-multipart>=0.0.6
+pillow>=10.0
+numpy>=1.24
+opencv-python-headless>=4.8  # video decoding (frame-folder clips work without it)

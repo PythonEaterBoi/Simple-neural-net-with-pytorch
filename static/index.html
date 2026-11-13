@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OmniTrain — Multi-Modal Neural Net Training</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">🧠 OmniTrain</div>
+  <div class="subtitle">train &amp; prompt neural nets across every modality</div>
+  <div class="health" id="health">connecting…</div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="train">🏋️ Train</button>
+  <button class="tab" data-tab="prompt">💬 Prompt</button>
+  <button class="tab" data-tab="models">📦 Models</button>
+</nav>
+
+<main>
+  <!-- ============================ TRAIN ============================ -->
+  <section id="tab-train" class="panel">
+    <div class="grid2">
+      <div class="card">
+        <h2>New training job</h2>
+        <label class="flabel">Modality</label>
+        <div id="modality-cards" class="modality-cards"></div>
+        <label class="flabel" for="task-select">Task</label>
+        <select id="task-select"></select>
+        <p id="task-desc" class="muted"></p>
+        <p id="data-help" class="datahelp"></p>
+        <label class="flabel" for="train-files">Training data</label>
+        <input type="file" id="train-files" multiple>
+        <div id="file-list" class="muted small"></div>
+        <h3>Hyperparameters</h3>
+        <div id="hyperparams" class="hyper"></div>
+        <button id="start-train" class="primary">▶ Start training</button>
+        <div id="train-msg" class="msg"></div>
+      </div>
+      <div>
+        <div class="card">
+          <h2>Jobs</h2>
+          <div class="row"><button id="refresh-jobs" class="ghost">↻ Refresh</button></div>
+          <div id="job-list"></div>
+        </div>
+        <div class="card" id="job-detail-card" hidden>
+          <h2 id="job-title">Job</h2>
+          <div id="job-status" class="muted"></div>
+          <canvas id="loss-chart" width="520" height="180"></canvas>
+          <div class="row">
+            <button id="cancel-job" class="danger">✕ Cancel</button>
+            <button id="delete-job" class="ghost">🗑 Delete</button>
+          </div>
+          <h3>Logs</h3>
+          <pre id="job-logs" class="logs"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ PROMPT ============================ -->
+  <section id="tab-prompt" class="panel" hidden>
+    <div class="grid2">
+      <div class="card">
+        <h2>Prompt a trained model</h2>
+        <label class="flabel" for="ckpt-select">Checkpoint</label>
+        <div class="row">
+          <select id="ckpt-select"></select>
+          <button id="refresh-ckpts" class="ghost">↻</button>
+        </div>
+        <div id="ckpt-info" class="muted small"></div>
+        <div id="prompt-inputs"></div>
+        <button id="run-prompt" class="primary">✨ Run</button>
+        <div id="prompt-msg" class="msg"></div>
+      </div>
+      <div class="card">
+        <h2>Result</h2>
+        <div id="prompt-result" class="result"><span class="muted">Results appear here.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ MODELS ============================ -->
+  <section id="tab-models" class="panel" hidden>
+    <div class="card">
+      <h2>Checkpoints</h2>
+      <div class="row"><button id="refresh-models" class="ghost">↻ Refresh</button></div>
+      <div id="model-list"></div>
+    </div>
+  </section>
+</main>
+
+<footer>OmniTrain · PyTorch · text · image · video · multimodal · tabular</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>
